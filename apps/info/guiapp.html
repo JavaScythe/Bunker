@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Classroom</title>
+		<link rel="icon" href="https://ssl.gstatic.com/classroom/favicon.png" />
+		<link href="../../css/ui.css" rel="stylesheet" />
+	</head>
+	<body style="margin:3em;">
+		<a href="../../index.html">Back to applist</a>
+		<h2>
+			Install an app
+		</h2>
+		<hr>
+		<script src="../../config.js"></script>
+		<ul class="list">
+			<li>Donwload the app folder (first download the zip; unzip it)</li>
+			<li>Move it to the "apps" folder (can be found where the index.html is)</li>
+			<li>Edit config.js (also in the same place as the index.html and apps folder) to: </li>
+			<li><pre id="p">window.config = [
+			"amgous"
+			]
+			</pre></li>
+			<li>But replace YOUR APP HERE with the name of the folder you just downloaded/added to the apps folder</li>
+		</ul>
+		<script>
+			window._config["apps"].push("YOUR APP HERE")
+			document.getElementById("p").textContent = "window._config = "+JSON.stringify(window._config)
+		</script>
+	</body>
+</html>

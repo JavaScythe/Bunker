@@ -4,3 +4,6 @@
 - Cattn: HTML + CSS + some js (I make the site look good (or bad depending on how you see it))
 ### INSTALLATION
 github packages dumbo
+
+##shidd
+window.

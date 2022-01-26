@@ -61,7 +61,11 @@ function decode(m,s){
 }
 function verified(msg){
 	if(msg.verified == "owner"){
-		return `${msg.name}&nbsp;<span class="verf" title="Verified "><img src="../css/verifi.png"></span>&nbsp;`
+		return `${msg.name}&nbsp;<span class="verf" title="Owner/Creator"><img src="../css/owner.svg"><span class="verf" title="Administrator"><img src="../css/admin.svg"></span><span class="verf" title="Known User"><img src="../css/user.svg"></span>&nbsp;`
+	} else if(msg.verified == "admin"){
+		return `${msg.name}&nbsp;<span class="verf" title="Administrator"><img src="../css/admin.svg"></span><span class="verf" title="Known User"><img src="../css/user.svg"></span>&nbsp;`
+	} else if(msg.verified == "user"){
+		return `${msg.name}&nbsp;<span class="verf" title="Known User"><img src="../css/user.svg"></span>&nbsp;`
 	} else {
 		return msg.name;
 	}
