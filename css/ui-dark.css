@@ -9,7 +9,26 @@
   text-shadow: .03em .03em 0 hsla(230,40%,50%,1);
   text-align: center;
   }
- 
+ .title:after {
+	text-align: center;
+    content: attr(data-shadow);
+    position: absolute;
+    top: .06em; left: .06em;
+    z-index: -1;
+    text-shadow: none;
+    background-image:
+      linear-gradient(
+        45deg,
+        transparent 45%,
+        hsla(48,20%,90%,1) 45%,
+        hsla(48,20%,90%,1) 55%,
+        transparent 0
+        );
+    background-size: .05em .05em;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    }	
+  
 .box_widget{
 	display: inline-block;
 	margin: 5px;
@@ -61,7 +80,8 @@
 body{
     margin: 0px;
     padding: 0px;
-    background-color: #303030;
+    background-color: #000000;
+	/*background-image: url("red-grad3.png");*/
 }
 *{
     color: rgb(228, 228, 228);
@@ -75,7 +95,7 @@ input,button,a{
     font-size: 1em;
 }
 a{
-    color: rgb(79, 102, 166		);
+    color: rgb(20, 70, 200);
     text-decoration: none;
     transition: all .3s;
 }
@@ -126,7 +146,7 @@ input{
     transition: all .3s;
     padding: .3em;
     background-color: rgb(43, 43, 43);
-    border: 2px solid rgb(3,15,95);
+    border: 2px solid rgb(50,50,50);
     border-radius: 5px;
 }
 input:focus{
@@ -211,6 +231,9 @@ input:focus{
     height: max-content;
     width: max-content;
 }
+p{
+text-align: center;
+}
 .Iam {
   padding: 2em 2em;
   font: normal 40px/50px Montserrat, sans-serif;
@@ -230,7 +253,7 @@ input:focus{
 }
 .Iam .innerIam {
   display: inline-block;
-  color: #C10000;
+  color: #292929;
   position: relative;
   white-space: nowrap;
   top: 0;

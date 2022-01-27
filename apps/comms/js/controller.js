@@ -61,7 +61,11 @@ function decode(m,s){
 }
 function verified(msg){
 	if(msg.verified == "owner"){
-		return `${msg.name}&nbsp;<span class="verf" title="Verified "><img src="../css/verifi.png"></span>&nbsp;`
+		return `${msg.name}&nbsp;<span class="verf" title="Owner/Creator"><img src="../css/owner.svg"><span class="verf" title="Administrator"><img src="../css/admin.svg"></span><span class="verf" title="Known User"><img src="../css/user.svg"></span>&nbsp;`
+	} else if(msg.verified == "admin"){
+		return `${msg.name}&nbsp;<span class="verf" title="Administrator"><img src="../css/admin.svg"></span><span class="verf" title="Known User"><img src="../css/user.svg"></span>&nbsp;`
+	} else if(msg.verified == "user"){
+		return `${msg.name}&nbsp;<span class="verf" title="Known User"><img src="../css/user.svg"></span>&nbsp;`
 	} else {
 		return msg.name;
 	}
@@ -75,7 +79,6 @@ socket.emit("login", {
 var typingState = false;
 socket.on("message", (msg)=>{
 	msg.msg = decode(msg.msg,msg.time);
-	console.log(msg);
 	var div = document.createElement("div");
 	div.setAttribute("class", "msg");
 	msg.msg=msg.msg.replaceAll("<","&lt;",).replaceAll(">", "&gt;");
@@ -101,8 +104,10 @@ socket.on("type", (data) => {
 });
 socket.on("ban", (data) => {
 	if(data.user == localStorage.comm_user){
-		localStorage.clear();
-		location.href="../../";
+		delete localStorage.comm_user;
+		delete localStorage.comm_session;
+		delete localStorage.comm_id;
+		location.href="../../index.html";
 	}
 });
 socket.on("active", (a) => {
