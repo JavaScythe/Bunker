@@ -79,7 +79,6 @@ socket.emit("login", {
 var typingState = false;
 socket.on("message", (msg)=>{
 	msg.msg = decode(msg.msg,msg.time);
-	console.log(msg);
 	var div = document.createElement("div");
 	div.setAttribute("class", "msg");
 	msg.msg=msg.msg.replaceAll("<","&lt;",).replaceAll(">", "&gt;");

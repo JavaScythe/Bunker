@@ -4,6 +4,7 @@ window._config = {
 		"comms",
 		"prxyz",
 		"info",
+		"mpviewer",
 		"conn_stats",
 		"hacker-news-tile",
 		"sample-games"
