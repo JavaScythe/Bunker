@@ -104,8 +104,10 @@ socket.on("type", (data) => {
 });
 socket.on("ban", (data) => {
 	if(data.user == localStorage.comm_user){
-		localStorage.clear();
-		location.href="../../";
+		delete localStorage.comm_user;
+		delete localStorage.comm_session;
+		delete localStorage.comm_id;
+		location.href="../../index.html";
 	}
 });
 socket.on("active", (a) => {
