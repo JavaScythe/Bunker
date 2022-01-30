@@ -142,14 +142,14 @@ a:hover,a:focus{
     padding: 10px;
     border-radius: 5px;
 }
-input{
+input,select{
     transition: all .3s;
     padding: .3em;
     background-color: var(--accent-8);
     border: 2px solid rgb(3,15,95);
     border-radius: 5px;
 }
-input:focus{
+input,select:focus{
     outline: none;
     border: 2px solid var(--accent-9);
 }

@@ -75,7 +75,7 @@ socket.emit("login", {
 	user: localStorage.comm_user,
 	id: localStorage.comm_id,
 	session: localStorage.comm_session
-})
+});
 var typingState = false;
 socket.on("message", (msg)=>{
 	msg.msg = decode(msg.msg,msg.time);
@@ -109,6 +109,14 @@ socket.on("ban", (data) => {
 		delete localStorage.comm_id;
 		location.href="../../index.html";
 	}
+});
+socket.on("aping", () => {
+	setTimeout(function(){
+		socket.emit("apong", {
+			name: localStorage.comm_user,
+			session: localStorage.comm_session
+		});
+	}, (Math.floor(Math.random() * (500 - 0 + 1)) + 500));
 });
 socket.on("active", (a) => {
 	document.getElementById("online_txt").textContent = "Online: "+a.join(", ");
